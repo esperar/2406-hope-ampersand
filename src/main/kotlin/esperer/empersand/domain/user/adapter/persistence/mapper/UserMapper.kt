@@ -11,8 +11,8 @@ class UserMapper(
     private val userRepository: UserJpaRepository
 ): GenericMapper<User, UserJpaEntity> {
 
-    override fun toDomain(entity: UserJpaEntity?): User? =
-        entity?.let {
+    override fun toDomain(entity: UserJpaEntity): User =
+        entity.let {
             User(
                 id = it.id,
                 name = it.name,
