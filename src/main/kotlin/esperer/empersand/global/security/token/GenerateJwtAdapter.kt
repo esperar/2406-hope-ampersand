@@ -1,8 +1,8 @@
 package esperer.empersand.global.security.token
 
-import esperer.empersand.domain.auth.adapter.persistence.entity.RefreshTokenEntity
-import esperer.empersand.domain.auth.adapter.persistence.repository.RefreshTokenRepository
-import esperer.empersand.domain.user.adapter.presentation.data.response.TokenResponse
+import esperer.empersand.domain.auth.persistence.entity.RefreshTokenEntity
+import esperer.empersand.domain.auth.persistence.repository.RefreshTokenRepository
+import esperer.empersand.domain.user.presentation.data.response.TokenResponse
 import esperer.empersand.global.spi.GenerateJwtPort
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm

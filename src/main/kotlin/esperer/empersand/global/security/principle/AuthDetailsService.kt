@@ -1,6 +1,6 @@
 package esperer.empersand.global.security.principle
 
-import esperer.empersand.domain.user.adapter.persistence.repository.UserJpaRepository
+import esperer.empersand.domain.user.persistence.repository.UserJpaRepository
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service

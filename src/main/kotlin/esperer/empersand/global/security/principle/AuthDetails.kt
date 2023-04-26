@@ -1,6 +1,6 @@
 package esperer.empersand.global.security.principle
 
-import esperer.empersand.domain.user.adapter.persistence.entity.UserJpaEntity
+import esperer.empersand.domain.user.persistence.entity.UserJpaEntity
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 

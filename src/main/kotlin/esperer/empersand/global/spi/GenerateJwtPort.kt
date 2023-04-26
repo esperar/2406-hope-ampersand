@@ -1,6 +1,6 @@
 package esperer.empersand.global.spi
 
-import esperer.empersand.domain.user.adapter.presentation.data.response.TokenResponse
+import esperer.empersand.domain.user.presentation.data.response.TokenResponse
 
 interface GenerateJwtPort {
 
