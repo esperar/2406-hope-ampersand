@@ -8,4 +8,5 @@ interface QueryItemPort {
     fun queryItem(): List<Item>
     fun queryItemById(id: UUID): Item
     fun queryItemByIdAndUser(id: UUID, user: User): Item
+    fun queryItemByUser(user: User): List<Item>
 }

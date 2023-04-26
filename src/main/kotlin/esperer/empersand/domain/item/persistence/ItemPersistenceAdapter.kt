@@ -45,5 +45,8 @@ class ItemPersistenceAdapter(
             .let { it ?: throw ItemNotFoundException() }
             .let { itemMapper.toDomain(it) }
 
+    override fun queryItemByUser(user: User): List<Item> =
+        itemJpaRepository.findAllByUserJpaEntity(userMapper.toEntity(user))
+            .map { itemMapper.toDomain(it) }
 
 }

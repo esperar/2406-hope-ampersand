@@ -8,4 +8,5 @@ import java.util.UUID
 interface ItemJpaRepository : CrudRepository<ItemJpaEntity, UUID> {
     fun findByIdAndUserJpaEntity(id: UUID, userJpaEntity: UserJpaEntity): ItemJpaEntity?
     fun deleteByIdAndUserJpaEntity(id: UUID, userJpaEntity: UserJpaEntity)
+    fun findAllByUserJpaEntity(userJpaEntity: UserJpaEntity): List<ItemJpaEntity>
 }

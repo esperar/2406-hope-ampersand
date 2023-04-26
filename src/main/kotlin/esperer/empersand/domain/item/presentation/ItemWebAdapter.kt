@@ -5,6 +5,8 @@ import esperer.empersand.domain.item.presentation.data.request.UpdateItemRequest
 import esperer.empersand.domain.item.presentation.data.response.QueryItemDetailResponse
 import esperer.empersand.domain.item.presentation.data.response.QueryItemResponse
 import esperer.empersand.domain.item.usecase.*
+import esperer.empersand.domain.order.usecase.CreateOrderUseCase
+import esperer.empersand.domain.order.usecase.QueryMyOrderItemUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -25,7 +27,8 @@ class ItemWebAdapter(
     private val updateItemUseCase: UpdateItemUseCase,
     private val queryItemUseCase: QueryItemUseCase,
     private val queryItemDetailUseCase: QueryItemDetailUseCase,
-    private val deleteItemUseCase: DeleteItemUseCase
+    private val deleteItemUseCase: DeleteItemUseCase,
+    private val createOrderUseCase: CreateOrderUseCase
 ) {
 
     @PostMapping
@@ -33,7 +36,7 @@ class ItemWebAdapter(
         createItemUseCase.execute(request)
             .let { ResponseEntity.status(HttpStatus.CREATED).build() }
 
-    @PatchMapping("{id}")
+    @PatchMapping("/{id}")
     fun updateItem(@PathVariable id: UUID, @RequestBody request: UpdateItemRequest): ResponseEntity<Void> =
         updateItemUseCase.execute(id, request)
             .let { ResponseEntity.noContent().build() }
@@ -43,14 +46,20 @@ class ItemWebAdapter(
         queryItemUseCase.execute()
             .let { ResponseEntity.ok(it) }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     fun queryItemById(@PathVariable id: UUID): ResponseEntity<QueryItemDetailResponse> =
         queryItemDetailUseCase.execute(id)
             .let { ResponseEntity.ok(it) }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     fun deleteItemById(@PathVariable id: UUID): ResponseEntity<Void> =
         deleteItemUseCase.execute(id)
             .let { ResponseEntity.ok().build() }
+
+    @PostMapping("/{id}/order")
+    fun orderItem(@PathVariable id: UUID): ResponseEntity<Void> =
+        createOrderUseCase.execute(id)
+            .let { ResponseEntity.status(HttpStatus.CREATED).build() }
+
 
 }
