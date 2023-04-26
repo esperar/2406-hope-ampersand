@@ -4,7 +4,6 @@ import esperer.empersand.domain.user.adapter.persistence.entity.UserJpaEntity
 import esperer.empersand.domain.user.adapter.persistence.repository.UserJpaRepository
 import esperer.empersand.domain.user.domain.User
 import esperer.empersand.global.mapper.GenericMapper
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 
 @Component
