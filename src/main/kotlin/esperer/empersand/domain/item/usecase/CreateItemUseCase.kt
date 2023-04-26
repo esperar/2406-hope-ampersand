@@ -27,6 +27,6 @@ class CreateItemUseCase(
             )
         }
 
-        commandItemPort.createItem(item)
+        commandItemPort.saveItem(item)
     }
 }

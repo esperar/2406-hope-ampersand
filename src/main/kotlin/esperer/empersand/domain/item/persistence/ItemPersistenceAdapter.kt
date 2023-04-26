@@ -26,6 +26,10 @@ class ItemPersistenceAdapter(
         itemJpaRepository.deleteById(id)
     }
 
+    override fun deleteItemByIdAndUser(id: UUID, user: User) =
+        itemJpaRepository.deleteByIdAndUserJpaEntity(id, userMapper.toEntity(user))
+
+
     override fun queryItem(): List<Item> =
         itemJpaRepository.findAll()
             .map { itemMapper.toDomain(it) }
