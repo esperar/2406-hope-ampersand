@@ -1,10 +1,10 @@
 package esperer.empersand.domain.item.spi
 
 import esperer.empersand.domain.item.domain.Item
+import java.util.*
 
 interface CommandItemPort {
 
-    fun createItem(item: Item)
-    fun updateItem(id: Long)
-    fun deleteItem(id: Long)
+    fun saveItem(item: Item)
+    fun deleteItem(id: UUID)
 }

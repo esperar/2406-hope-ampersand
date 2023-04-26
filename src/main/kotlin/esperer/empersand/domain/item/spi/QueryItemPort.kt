@@ -1,9 +1,11 @@
 package esperer.empersand.domain.item.spi
 
-import esperer.empersand.domain.item.presentation.data.response.QueryItemDetailResponse
-import esperer.empersand.domain.item.presentation.data.response.QueryItemResponse
+import esperer.empersand.domain.item.domain.Item
+import esperer.empersand.domain.user.domain.User
+import java.util.*
 
 interface QueryItemPort {
-    fun queryItem(): List<QueryItemResponse>
-    fun queryItemById(id: Long): QueryItemDetailResponse
+    fun queryItem(): List<Item>
+    fun queryItemById(id: UUID): Item
+    fun queryItemByIdAndUser(id: UUID, user: User): Item
 }
