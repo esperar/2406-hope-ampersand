@@ -11,7 +11,7 @@ enum class ErrorCode(
 
     ITEM_NOT_FOUND("아이템 찾을 수 없습니다.", 404),
 
-    USER_NOT_FOUND("존재하지 않는 유저을 404"),
+    USER_NOT_FOUND("존재하지 않는 유저입니다.", 404),
 
-    INTERVAL_SERVER_ERROR("서버 오류 입니다.", 500),
+    INTERVAL_SERVER_ERROR("서버 오류 입니다.", 500);
 }

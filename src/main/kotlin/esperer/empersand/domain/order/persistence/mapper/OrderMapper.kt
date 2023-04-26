@@ -8,10 +8,9 @@ import esperer.empersand.global.mapper.GenericMapper
 import org.springframework.stereotype.Component
 
 @Component
-private class OrderMapper(
+class OrderMapper(
     private val userMapper: UserMapper,
     private val itemMapper: ItemMapper
-
 ) : GenericMapper<Order, OrderJpaEntity>{
     override fun toDomain(entity: OrderJpaEntity): Order =
         entity.let {
