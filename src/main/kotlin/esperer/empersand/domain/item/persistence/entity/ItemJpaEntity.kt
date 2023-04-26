@@ -1,6 +1,8 @@
 package esperer.empersand.domain.item.persistence.entity
 
 import esperer.empersand.domain.user.persistence.entity.UserJpaEntity
+import org.hibernate.annotations.GenericGenerator
+import java.util.*
 import javax.persistence.*
 
 @Entity
@@ -8,9 +10,10 @@ import javax.persistence.*
 class ItemJpaEntity(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    val id: Long,
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(columnDefinition = "BINARY(16)", nullable = false, name = "id")
+    val id: UUID,
 
     val title: String,
 

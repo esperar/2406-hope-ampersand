@@ -11,5 +11,7 @@ enum class ErrorCode(
 
     POST_NOT_FOUND("게시글을 찾을 수 없습니다.", 404),
 
+    USER_NOT_FOUND("존재하지 않는 유저, 404"),
+
     INTERVAL_SERVER_ERROR("서버 오류 입니다.", 500),
 }
